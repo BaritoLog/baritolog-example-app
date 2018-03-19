@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: baritolog-example-app
+  labels:
+    baritoApplicationSecret: "ABCDE1234"
+    baritoProduceHost: "barito-flow.default.svc.cluster.local"
+    baritoProducePort: "8080"
+    baritoProduceTopic: "kafka-dummy-topic"
+    baritoStreamId: "18"
+    baritoStoreId: "1"
+    baritoForwarderId: "1"
+    baritoClientId: "10"
+spec:
+  containers:
+  - name: baritolog-example-app
+    image: baritolog-example-app:0.0.1
+    imagePullPolicy: Never
+    resources:
+      limits:
+        memory: 200Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
